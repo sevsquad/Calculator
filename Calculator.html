@@ -5,117 +5,117 @@
   </head>
   <script type="text/javascript">
 
-  	var add = "";
+  	var operand1 = "";
   	var operation = "";
 
   	window.click1 = function() {
 
-  		document.getElementById("value12").value = (document.getElementById("value12").value + 1); 
+  		document.getElementById("display").value = (document.getElementById("display").value + 1); 
   	};
     window.click2 = function() {
 
-  		document.getElementById("value12").value = (document.getElementById("value12").value + 2); 
+  		document.getElementById("display").value = (document.getElementById("display").value + 2); 
   	};
 
   	window.click3 = function() {
 
-  		document.getElementById("value12").value = (document.getElementById("value12").value + 3); 
+  		document.getElementById("display").value = (document.getElementById("display").value + 3); 
   	};
 
   	window.click4 = function() {
 
-  		document.getElementById("value12").value = (document.getElementById("value12").value + 4); 
+  		document.getElementById("display").value = (document.getElementById("display").value + 4); 
   	};
 
   	window.click5 = function() {
 
-  		document.getElementById("value12").value = (document.getElementById("value12").value + 5); 
+  		document.getElementById("display").value = (document.getElementById("display").value + 5); 
   	};
 
   	window.click6 = function() {
 
-  		document.getElementById("value12").value = (document.getElementById("value12").value + 6); 
+  		document.getElementById("display").value = (document.getElementById("display").value + 6); 
   	};
 
   	window.click7 = function() {
 
-  		document.getElementById("value12").value = (document.getElementById("value12").value + 7); 
+  		document.getElementById("display").value = (document.getElementById("display").value + 7); 
   	};
 
   	window.click8 = function() {
 
-  		document.getElementById("value12").value = (document.getElementById("value12").value + 8); 
+  		document.getElementById("display").value = (document.getElementById("display").value + 8); 
   	};
 
   	window.click9 = function() {
 
-  		document.getElementById("value12").value = (document.getElementById("value12").value + 9); 
+  		document.getElementById("display").value = (document.getElementById("display").value + 9); 
   	};
 
   	window.click0 = function() {
-  		var zero = document.getElementById("value12").value;
-  		if (zero !== "0") {document.getElementById("value12").value = (zero + 0); }
+  		var displayValue = document.getElementById("display").value;
+  		if (displayValue !== "0") {document.getElementById("display").value = (displayValue + 0); }
   		
   	};
 
   	window.click10 = function() {
-  		var text = document.getElementById("value12").value;
+  		var displayValue = document.getElementById("display").value;
 
-  		if (text.indexOf(".") === -1) {document.getElementById("value12").value = (text + "."); }
+  		if (displayValue.indexOf(".") === -1) {document.getElementById("display").value = (displayValue + "."); }
 
   	};
 
   	window.clickClear = function() {
 
-  		document.getElementById("value12").value = ""; 
+  		document.getElementById("display").value = ""; 
   	};
 
   	window.clickSquare = function() {
-  		var square = parseFloat(document.getElementById("value12").value);
+  		var displayValue = parseFloat(document.getElementById("display").value);
 
-  		document.getElementById("value12").value = square * square; 
+  		document.getElementById("display").value = displayValue * displayValue; 
   	};
 
   	window.clickAdd = function() {
-  		add = parseFloat(document.getElementById("value12").value);
+  		 operand1 = parseFloat(document.getElementById("display").value);
   		operation = "add";
 
-  		document.getElementById("value12").value = "" ; 
+  		document.getElementById("display").value = "" ; 
   	};
 
   	window.clickMultiply = function() {
-  		add = parseFloat(document.getElementById("value12").value);
+  		operand1 = parseFloat(document.getElementById("display").value);
   		operation = "multiply";
 
-  		document.getElementById("value12").value = "" ; 
+  		document.getElementById("display").value = "" ; 
   	};
 
   	window.clickDivide = function() {
-  		add = parseFloat(document.getElementById("value12").value);
+  		operand1 = parseFloat(document.getElementById("display").value);
   		operation = "divide";
 
-  		document.getElementById("value12").value = "" ; 
+  		document.getElementById("display").value = "" ; 
   	};
 
   	window.clickMinus = function() {
-  		add = parseFloat(document.getElementById("value12").value);
+  		operand1 = parseFloat(document.getElementById("display").value);
   		operation = "minus";
 
-  		document.getElementById("value12").value = "" ; 
+  		document.getElementById("display").value = "" ; 
   	};
 
   	window.clickEquals = function() {
-  		var equals = parseFloat(document.getElementById("value12").value);
+  		var displayValue = parseFloat(document.getElementById("display").value);
 
-  		if (operation.indexOf("add") === 0) {document.getElementById("value12").value = add + equals;}
-  		if (operation.indexOf("multiply") === 0) {document.getElementById("value12").value = add * equals;}
-  		if (operation.indexOf("divide") === 0) {document.getElementById("value12").value = add / equals;}
-  		if (operation.indexOf("minus") === 0) {document.getElementById("value12").value = add - equals;}
+  		if (operation.indexOf("add") === 0) {document.getElementById("display").value = operand1 + displayValue;}
+  		if (operation.indexOf("multiply") === 0) {document.getElementById("display").value = operand1 * displayValue;}
+  		if (operation.indexOf("divide") === 0) {document.getElementById("display").value = operand1 / displayValue;}
+  		if (operation.indexOf("minus") === 0) {document.getElementById("display").value = operand1 - displayValue;}
   	
   	};
   </script>
   <body>
-    <input type="text" id="value12" value="" readonly> <br>
+    <input type="text" id="display" value="" readonly> <br>
     <br>
     <input type="button" value= "1" onclick="click1()">
     <input type="button" value= "2" onclick="click2()">
