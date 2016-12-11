@@ -12,6 +12,11 @@
       return document.getElementById("display").value;
     };
 
+    setDisplay = function(disp) {        
+      document.getElementById("display").value = disp;      
+    };
+
+
     clickNumber = function(num) {
       return function() {
         document.getElementById("display").value = (getDisplay() + num); 
@@ -29,26 +34,25 @@
   	window.click9 = clickNumber(9);
   	window.click0 = function() {
   		var displayValue = getDisplay();
-  		if (displayValue !== "0") {document.getElementById("display").value = (displayValue + 0); }
+  		if (displayValue !== "0") { setDisplay(displayValue + 0); }
   		
   	};
 
   	window.click10 = function() {
   		var displayValue = getDisplay();
 
-  		if (displayValue.indexOf(".") === -1) {document.getElementById("display").value = (displayValue + "."); }
+  		if (displayValue.indexOf(".") === -1) { setDisplay(displayValue + "."); }
 
   	};
 
   	window.clickClear = function() {
-
-  		document.getElementById("display").value = ""; 
+      setDisplay("");
   	};
 
   	window.clickSquare = function() {
   		var displayValue = parseFloat(getDisplay());
 
-  		document.getElementById("display").value = displayValue * displayValue; 
+  		setDisplay(displayValue * displayValue); 
   	};
 
   	clickOperation = function(op) {
@@ -56,7 +60,7 @@
   		  operand1 = parseFloat(getDisplay());
   		  operation = op ;
 
-  		  document.getElementById("display").value = "" ; 
+  		  setDisplay(""); 
       };
   	};
 
@@ -68,10 +72,10 @@
   	window.clickEquals = function() {
   		var displayValue = parseFloat(getDisplay());
 
-  		if (operation.indexOf("add") === 0) {document.getElementById("display").value = operand1 + displayValue;}
-  		if (operation.indexOf("multiply") === 0) {document.getElementById("display").value = operand1 * displayValue;}
-  		if (operation.indexOf("divide") === 0) {document.getElementById("display").value = operand1 / displayValue;}
-  		if (operation.indexOf("minus") === 0) {document.getElementById("display").value = operand1 - displayValue;}
+  		if (operation.indexOf("add") === 0) { setDisplay(operand1 + displayValue); }
+  		if (operation.indexOf("multiply") === 0) { setDisplay(operand1 * displayValue); }
+  		if (operation.indexOf("divide") === 0) { setDisplay(operand1 / displayValue); }
+  		if (operation.indexOf("minus") === 0) { setDisplay(operand1 - displayValue); }
   	
   	};
   </script>
