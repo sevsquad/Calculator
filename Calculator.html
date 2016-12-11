@@ -41,7 +41,7 @@
   	window.click10 = function() {
   		var displayValue = getDisplay();
 
-  		if (displayValue.indexOf(".") === -1) { setDisplay(displayValue + "."); }
+  		if (!displayValue.includes(".")) { setDisplay(displayValue + "."); }
 
   	};
 
