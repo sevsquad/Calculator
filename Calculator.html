@@ -8,9 +8,13 @@
   	var operand1 = "";
   	var operation = "";
 
+    getDisplay = function() {
+      return document.getElementById("display").value;
+    };
+
     clickNumber = function(num) {
       return function() {
-        document.getElementById("display").value = (document.getElementById("display").value + num); 
+        document.getElementById("display").value = (getDisplay() + num); 
       };
     };
 
@@ -24,13 +28,13 @@
   	window.click8 = clickNumber(8);
   	window.click9 = clickNumber(9);
   	window.click0 = function() {
-  		var displayValue = document.getElementById("display").value;
+  		var displayValue = getDisplay();
   		if (displayValue !== "0") {document.getElementById("display").value = (displayValue + 0); }
   		
   	};
 
   	window.click10 = function() {
-  		var displayValue = document.getElementById("display").value;
+  		var displayValue = getDisplay();
 
   		if (displayValue.indexOf(".") === -1) {document.getElementById("display").value = (displayValue + "."); }
 
@@ -42,14 +46,14 @@
   	};
 
   	window.clickSquare = function() {
-  		var displayValue = parseFloat(document.getElementById("display").value);
+  		var displayValue = parseFloat(getDisplay());
 
   		document.getElementById("display").value = displayValue * displayValue; 
   	};
 
   	clickOperation = function(op) {
       return function() {
-  		  operand1 = parseFloat(document.getElementById("display").value);
+  		  operand1 = parseFloat(getDisplay());
   		  operation = op ;
 
   		  document.getElementById("display").value = "" ; 
@@ -62,7 +66,7 @@
   	window.clickMinus = clickOperation("minus"); 
 
   	window.clickEquals = function() {
-  		var displayValue = parseFloat(document.getElementById("display").value);
+  		var displayValue = parseFloat(getDisplay());
 
   		if (operation.indexOf("add") === 0) {document.getElementById("display").value = operand1 + displayValue;}
   		if (operation.indexOf("multiply") === 0) {document.getElementById("display").value = operand1 * displayValue;}
