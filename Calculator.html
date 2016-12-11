@@ -1,0 +1,139 @@
+</!DOCTYPE html>
+<html>
+  <head>
+	<title></title>
+  </head>
+  <script type="text/javascript">
+
+  	var add = "";
+  	var operation = "";
+
+  	window.click1 = function() {
+
+  		document.getElementById("value12").value = (document.getElementById("value12").value + 1); 
+  	};
+    window.click2 = function() {
+
+  		document.getElementById("value12").value = (document.getElementById("value12").value + 2); 
+  	};
+
+  	window.click3 = function() {
+
+  		document.getElementById("value12").value = (document.getElementById("value12").value + 3); 
+  	};
+
+  	window.click4 = function() {
+
+  		document.getElementById("value12").value = (document.getElementById("value12").value + 4); 
+  	};
+
+  	window.click5 = function() {
+
+  		document.getElementById("value12").value = (document.getElementById("value12").value + 5); 
+  	};
+
+  	window.click6 = function() {
+
+  		document.getElementById("value12").value = (document.getElementById("value12").value + 6); 
+  	};
+
+  	window.click7 = function() {
+
+  		document.getElementById("value12").value = (document.getElementById("value12").value + 7); 
+  	};
+
+  	window.click8 = function() {
+
+  		document.getElementById("value12").value = (document.getElementById("value12").value + 8); 
+  	};
+
+  	window.click9 = function() {
+
+  		document.getElementById("value12").value = (document.getElementById("value12").value + 9); 
+  	};
+
+  	window.click0 = function() {
+  		var zero = document.getElementById("value12").value;
+  		if (zero !== "0") {document.getElementById("value12").value = (zero + 0); }
+  		
+  	};
+
+  	window.click10 = function() {
+  		var text = document.getElementById("value12").value;
+
+  		if (text.indexOf(".") === -1) {document.getElementById("value12").value = (text + "."); }
+
+  	};
+
+  	window.clickClear = function() {
+
+  		document.getElementById("value12").value = ""; 
+  	};
+
+  	window.clickSquare = function() {
+  		var square = parseFloat(document.getElementById("value12").value);
+
+  		document.getElementById("value12").value = square * square; 
+  	};
+
+  	window.clickAdd = function() {
+  		add = parseFloat(document.getElementById("value12").value);
+  		operation = "add";
+
+  		document.getElementById("value12").value = "" ; 
+  	};
+
+  	window.clickMultiply = function() {
+  		add = parseFloat(document.getElementById("value12").value);
+  		operation = "multiply";
+
+  		document.getElementById("value12").value = "" ; 
+  	};
+
+  	window.clickDivide = function() {
+  		add = parseFloat(document.getElementById("value12").value);
+  		operation = "divide";
+
+  		document.getElementById("value12").value = "" ; 
+  	};
+
+  	window.clickMinus = function() {
+  		add = parseFloat(document.getElementById("value12").value);
+  		operation = "minus";
+
+  		document.getElementById("value12").value = "" ; 
+  	};
+
+  	window.clickEquals = function() {
+  		var equals = parseFloat(document.getElementById("value12").value);
+
+  		if (operation.indexOf("add") === 0) {document.getElementById("value12").value = add + equals;}
+  		if (operation.indexOf("multiply") === 0) {document.getElementById("value12").value = add * equals;}
+  		if (operation.indexOf("divide") === 0) {document.getElementById("value12").value = add / equals;}
+  		if (operation.indexOf("minus") === 0) {document.getElementById("value12").value = add - equals;}
+  	
+  	};
+  </script>
+  <body>
+    <input type="text" id="value12" value="" readonly> <br>
+    <br>
+    <input type="button" value= "1" onclick="click1()">
+    <input type="button" value= "2" onclick="click2()">
+    <input type="button" value= "3" onclick="click3()">
+    <input type="button" value= "Sqr" onclick="clickSquare()"> <br>
+    <input type="button" value= "4" onclick="click4()">
+    <input type="button" value= "5" onclick="click5()">
+    <input type="button" value= "6" onclick="click6()">
+    <input type="button" value= "+" onclick="clickAdd()">
+    <input type="button" value= "*" onclick="clickMultiply()"><br>
+    <input type="button" value= "7" onclick="click7()">
+    <input type="button" value= "8" onclick="click8()">
+    <input type="button" value= "9" onclick="click9()">
+    <input type="button" value= "-" onclick="clickMinus()">
+    <input type="button" value= "/" onclick="clickDivide()"><br>
+    <input type="button" value= "0" onclick="click0()">
+    <input type="button" value= "." onclick="click10()">
+    <input type="button" value= "Clr" onclick="clickClear()"> <br>
+    <input type="button" value= "=" onclick="clickEquals()">
+  </body>
+</html>
