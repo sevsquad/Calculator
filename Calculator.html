@@ -72,14 +72,15 @@
     window.clickEquals = function() {
       var displayValue = parseFloat(getDisplay());
       var operationObject = {
-        add: function(x, y) { setDisplay(x+y); }
-      , minus: function(x, y) { setDisplay(x-y); }
-      , divide: function(x, y) { setDisplay(x/y); }
-      , multiply: function(x, y) { setDisplay(x*y); }
+        add: function(x, y) {return x+y; }
+      , minus: function(x, y) {return x-y; }
+      , divide: function(x, y) {return x/y; }
+      , multiply: function(x, y) {return x*y; }
       }
-      var operationEquals = operationObject[operation];
+        
+      setDisplay(operationObject[operation](operand1, displayValue));
+
       
-      operationEquals(operand1, displayValue);
     };
   </script>
   <body>
