@@ -19,7 +19,7 @@
 
     clickNumber = function(num) {
       return function() {
-        document.getElementById("display").value = (getDisplay() + num); 
+        document.getElementById("display").value = `${getDisplay()}${num}`; 
       };
     };
 
@@ -34,14 +34,14 @@
     window.click9 = clickNumber(9);
     window.click0 = function() {
       var displayValue = getDisplay();
-      if (displayValue !== "0") { setDisplay(displayValue + 0); }
+      if (displayValue !== "0") { setDisplay(`${displayValue}0`); }
       
     };
 
     window.click10 = function() {
       var displayValue = getDisplay();
 
-      if (!displayValue.includes(".")) { setDisplay(displayValue + "."); }
+      if (!displayValue.includes(".")) { setDisplay(`${displayValue}.`); }
 
     };
 
