@@ -1,12 +1,12 @@
 </!DOCTYPE html>
 <html>
   <head>
-	<title></title>
+  <title></title>
   </head>
   <script type="text/javascript">
 
-  	var operand1 = "";
-  	var operation = "";
+    var operand1 = "";
+    var operation = "";
 
     getDisplay = function() {
       return document.getElementById("display").value;
@@ -23,54 +23,54 @@
       };
     };
 
-  	window.click1 = clickNumber(1);
+    window.click1 = clickNumber(1);
     window.click2 = clickNumber(2);
-  	window.click3 = clickNumber(3);
+    window.click3 = clickNumber(3);
     window.click4 = clickNumber(4);
-  	window.click5 = clickNumber(5);
-  	window.click6 = clickNumber(6);
-  	window.click7 = clickNumber(7);
-  	window.click8 = clickNumber(8);
-  	window.click9 = clickNumber(9);
-  	window.click0 = function() {
-  		var displayValue = getDisplay();
-  		if (displayValue !== "0") { setDisplay(displayValue + 0); }
-  		
-  	};
+    window.click5 = clickNumber(5);
+    window.click6 = clickNumber(6);
+    window.click7 = clickNumber(7);
+    window.click8 = clickNumber(8);
+    window.click9 = clickNumber(9);
+    window.click0 = function() {
+      var displayValue = getDisplay();
+      if (displayValue !== "0") { setDisplay(displayValue + 0); }
+      
+    };
 
-  	window.click10 = function() {
-  		var displayValue = getDisplay();
+    window.click10 = function() {
+      var displayValue = getDisplay();
 
-  		if (!displayValue.includes(".")) { setDisplay(displayValue + "."); }
+      if (!displayValue.includes(".")) { setDisplay(displayValue + "."); }
 
-  	};
+    };
 
-  	window.clickClear = function() {
+    window.clickClear = function() {
       setDisplay("");
-  	};
+    };
 
-  	window.clickSquare = function() {
-  		var displayValue = parseFloat(getDisplay());
+    window.clickSquare = function() {
+      var displayValue = parseFloat(getDisplay());
 
-  		setDisplay(displayValue * displayValue); 
-  	};
+      setDisplay(displayValue * displayValue); 
+    };
 
-  	clickOperation = function(op) {
+    clickOperation = function(op) {
       return function() {
-  		  operand1 = parseFloat(getDisplay());
-  		  operation = op ;
+        operand1 = parseFloat(getDisplay());
+        operation = op ;
 
-  		  setDisplay(""); 
+        setDisplay(""); 
       };
-  	};
+    };
 
     window.clickAdd = clickOperation("add"); 
-  	window.clickMultiply = clickOperation("multiply"); 
-  	window.clickDivide = clickOperation("divide"); 
-  	window.clickMinus = clickOperation("minus"); 
+    window.clickMultiply = clickOperation("multiply"); 
+    window.clickDivide = clickOperation("divide"); 
+    window.clickMinus = clickOperation("minus"); 
 
-  	window.clickEquals = function() {
-  		var displayValue = parseFloat(getDisplay());
+    window.clickEquals = function() {
+      var displayValue = parseFloat(getDisplay());
       var operationObject = {
         add: function(x, y) { setDisplay(x+y); }
       , minus: function(x, y) { setDisplay(x-y); }
@@ -80,7 +80,7 @@
       var operationEquals = operationObject[operation];
       
       operationEquals(operand1, displayValue);
-  	};
+    };
   </script>
   <body>
     <input type="text" id="display" value="" readonly> <br>
