@@ -23,14 +23,13 @@
       };
     };
 
-    multiply_Shortcut = function(e){
-      if (e.keyCode == 106) {
-        clickOperation("multiply");  
+    multiplyShortcut = function(e){
+      if (e.keyCode === 42) {
+        clickMultiply();
       };
     };
 
 
-   
 
     window.click1 = clickNumber(1);
     window.click2 = clickNumber(2);
@@ -88,9 +87,9 @@
       }
         
       setDisplay(operationObject[operation](operand1, displayValue));
-      document.addEventListener('keyPress', function(), false);
       
     };
+    document.addEventListener('keypress', multiplyShortcut);
   </script>
   <body>
     <input type="text" id="display" value="" readonly> <br>
