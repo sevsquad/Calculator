@@ -7,6 +7,7 @@
 
     var operand1 = "";
     var operation = "";
+    var shouldClear= false;
 
     getDisplay = function() {
       return document.getElementById("display").value;
@@ -17,9 +18,14 @@
     };
 
 
-    clickNumber = function(num) {
-      return function() {
-        document.getElementById("display").value = `${getDisplay()}${num}`; 
+    clickNumber = function(num, f) {
+      return function() { 
+        if(f === undefined || f(getDisplay())){
+          if (shouldClear){
+            setDisplay("");
+          }
+          document.getElementById("display").value = `${getDisplay()}${num}`;
+        }
       };
     };
 
@@ -40,19 +46,13 @@
     window.click7 = clickNumber(7);
     window.click8 = clickNumber(8);
     window.click9 = clickNumber(9);
-    window.click0 = function() {
-      var displayValue = getDisplay();
-      if (displayValue !== "0") { setDisplay(`${displayValue}0`); }
-      
-    };
-
-    window.click10 = function() {
-      var displayValue = getDisplay();
-
-      if (!displayValue.includes(".")) { setDisplay(`${displayValue}.`); }
-
-    };
-
+    window.click0 = clickNumber(0, function(str){
+      return str !== "0";
+    });
+    window.clickPeriod = clickNumber(".", function(str){
+      return !str.includes(".");
+    });
+    
     window.clickClear = function() {
       setDisplay("");
     };
@@ -65,6 +65,7 @@
 
     clickOperation = function(op) {
       return function() {
+        shouldClear = false;
         operand1 = parseFloat(getDisplay());
         operation = op ;
 
@@ -78,6 +79,7 @@
     window.clickMinus = clickOperation("minus"); 
 
     window.clickEquals = function() {
+      shouldClear = true;
       var displayValue = parseFloat(getDisplay());
       var operationObject = {
         add: function(x, y) {return x+y; }
@@ -109,7 +111,7 @@
     <input type="button" value= "-" onclick="clickMinus()">
     <input type="button" value= "/" onclick="clickDivide()"><br>
     <input type="button" value= "0" onclick="click0()">
-    <input type="button" value= "." onclick="click10()">
+    <input type="button" value= "." onclick="clickPeriod()">
     <input type="button" value= "Clr" onclick="clickClear()"> <br>
     <input type="button" value= "=" onclick="clickEquals()">
 
