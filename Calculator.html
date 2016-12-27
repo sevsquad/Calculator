@@ -23,6 +23,15 @@
       };
     };
 
+    multiply_Shortcut = function(e){
+      if (e.keyCode == 106) {
+        clickOperation("multiply");  
+      };
+    };
+
+
+   
+
     window.click1 = clickNumber(1);
     window.click2 = clickNumber(2);
     window.click3 = clickNumber(3);
@@ -79,7 +88,7 @@
       }
         
       setDisplay(operationObject[operation](operand1, displayValue));
-
+      document.addEventListener('keyPress', function(), false);
       
     };
   </script>
@@ -104,5 +113,6 @@
     <input type="button" value= "." onclick="click10()">
     <input type="button" value= "Clr" onclick="clickClear()"> <br>
     <input type="button" value= "=" onclick="clickEquals()">
+
   </body>
 </html>
