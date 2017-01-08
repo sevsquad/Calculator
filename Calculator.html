@@ -8,6 +8,7 @@
     var operand1 = undefined;
     var operation = undefined;
     var shouldClear= false;
+    var lastEquals = undefined;
 
     getDisplay = function() {
       return document.getElementById("display").value;
@@ -20,6 +21,7 @@
 
     clickNumber = function(num, f) {
       return function() { 
+        lastEquals = undefined;
         if(f === undefined || f(getDisplay())){
           if (shouldClear){
             setDisplay("");
@@ -78,12 +80,14 @@
       shouldClear = false;
       operand1 = undefined;
       setDisplay("");
+      lastEquals = undefined;
     };
 
     window.clickSquare = function() {
       var displayValue = parseFloat(getDisplay());
 
       setDisplay(displayValue * displayValue); 
+      lastEquals = undefined;
     };
 
     clickOperation = function(op) {
@@ -95,7 +99,7 @@
         }
         operation = op ;
         operand1 = parseFloat(getDisplay());
-        
+        lastEquals = undefined
 
         setDisplay("");
       };
@@ -108,16 +112,18 @@
 
     window.clickEquals = function() {
       shouldClear = true;
-      var displayValue = parseFloat(getDisplay());
       var operationObject = {
         add: function(x, y) {return x+y; }
       , minus: function(x, y) {return x-y; }
       , divide: function(x, y) {return x/y; }
       , multiply: function(x, y) {return x*y; }
       }
-        
-      setDisplay(operationObject[operation](operand1, displayValue));
-
+      var displayValue = parseFloat(getDisplay());
+      if (lastEquals === undefined){
+        lastEquals = [operand1, displayValue];  
+        } 
+      setDisplay(operationObject[operation](lastEquals[0], lastEquals[1]));
+      lastEquals[0] = operationObject[operation](lastEquals[0], lastEquals[1]);
       operand1 = undefined;
     };
     document.addEventListener('keypress', keyboardShortcut);
