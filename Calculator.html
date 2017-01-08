@@ -30,8 +30,60 @@
     };
 
     multiplyShortcut = function(e){
+      x = e.keyCode;
+      setDisplay(x);
       if (e.keyCode === 42) {
         clickMultiply();
+      };
+      if (e.keyCode === 47) {
+        clickDivide();
+      };
+
+      if (e.keyCode === 43) {
+        clickAdd();
+      };
+
+      if (e.keyCode === 45) {
+        clickMinus();
+      };
+      if (e.keyCode === 45) {
+        clickMinus();
+      };
+      if (e.keyCode === 48) {
+        click0();
+      };
+      if (e.keyCode === 49) {
+        click1();
+      };
+      if (e.keyCode === 50) {
+        click2();
+      };
+      if (e.keyCode === 51) {
+        click3();
+      };
+      if (e.keyCode === 52) {
+        click4();
+      };
+      if (e.keyCode === 53) {
+        click5();
+      };
+      if (e.keyCode === 54) {
+        click6();
+      };
+      if (e.keyCode === 55) {
+        click7();
+      };
+      if (e.keyCode === 56) {
+        click8();
+      };
+      if (e.keyCode === 57) {
+        click9();
+      };
+      if (e.keyCode === 13) {
+        clickEquals();
+      };
+      if (e.keyCode === 46) {
+        clickPeriod();
       };
     };
 
