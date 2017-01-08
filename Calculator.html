@@ -5,8 +5,8 @@
   </head>
   <script type="text/javascript">
 
-    var operand1 = "";
-    var operation = "";
+    var operand1 = undefined;
+    var operation = undefined;
     var shouldClear= false;
 
     getDisplay = function() {
@@ -23,6 +23,7 @@
         if(f === undefined || f(getDisplay())){
           if (shouldClear){
             setDisplay("");
+            shouldClear = false;
           }
           document.getElementById("display").value = `${getDisplay()}${num}`;
         }
@@ -75,6 +76,7 @@
     
     window.clickClear = function() {
       shouldClear = false;
+      operand1 = undefined;
       setDisplay("");
     };
 
@@ -87,10 +89,15 @@
     clickOperation = function(op) {
       return function() {
         shouldClear = false;
-        operand1 = parseFloat(getDisplay());
+        
+        if(operand1 !== undefined) {  
+          clickEquals();
+        }
         operation = op ;
+        operand1 = parseFloat(getDisplay());
+        
 
-        setDisplay(""); 
+        setDisplay("");
       };
     };
 
@@ -110,7 +117,8 @@
       }
         
       setDisplay(operationObject[operation](operand1, displayValue));
-      
+
+      operand1 = undefined;
     };
     document.addEventListener('keypress', keyboardShortcut);
   </script>
@@ -133,7 +141,7 @@
     <input type="button" value= "/" onclick="clickDivide()"><br>
     <input type="button" value= "0" onclick="click0()">
     <input type="button" value= "." onclick="clickPeriod()">
-    <input type="button" value= "Clr" onclick="clickClear()"> <br>
+    <input type="button" value= "Clr" onclick="clickClear()" unselectable = "on"> <br>
     <input type="button" value= "=" onclick="clickEquals()">
 
   </body>
