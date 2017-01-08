@@ -1,0 +1,8 @@
+{
+  "name": "Calculator",
+  "repository": "https://github.com/sevsquad/Calculator",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+  }
+}
